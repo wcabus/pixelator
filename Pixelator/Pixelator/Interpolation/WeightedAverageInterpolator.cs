@@ -24,7 +24,8 @@ namespace Pixelator.Interpolation {
                 }
             }
 
-            int r = 0, g = 0, b = 0;
+            //Fix: added alpha channel in the mix. This is not when going from a full color to full transparency, but it's better than total blackness.
+            int a = 0, r = 0, g = 0, b = 0;
             var countPerColor = from pair in colorCount
                                 group pair by pair.Key into @group
                                 select new { Color = @group.Key, Count = @group.Count() };
@@ -32,16 +33,18 @@ namespace Pixelator.Interpolation {
             int total = 0;
             foreach (var count in countPerColor) {
                 total += count.Count;
+                a += count.Count * count.Color.A;
                 r += count.Count * count.Color.R;
                 g += count.Count * count.Color.G;
                 b += count.Count * count.Color.B;
             }
 
+            a /= total;
             r /= total;
             g /= total;
             b /= total;
 
-            return Color.FromArgb(r, g, b);
+            return Color.FromArgb(a, r, g, b);
         }
     }
 }

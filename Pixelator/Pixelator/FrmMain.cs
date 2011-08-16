@@ -205,6 +205,19 @@ namespace Pixelator {
         }
 
         private void InterpolationModeChanged(object sender, EventArgs e) {
+            ToolStripMenuItem current = middlePixelToolStripMenuItem;
+            if (interpolator is DominantPixelInterpolator)
+                current = dominantPixelToolStripMenuItem;
+            if (interpolator is WeightedAverageInterpolator)
+                current = weightedAverageToolStripMenuItem;
+
+
+            if (sender == current) {
+                //Reapply the checkbox
+                current.Checked = true;
+                return;
+            }
+
             if (sender == middlePixelToolStripMenuItem) {
                 dominantPixelToolStripMenuItem.Checked = false;
                 weightedAverageToolStripMenuItem.Checked = false;

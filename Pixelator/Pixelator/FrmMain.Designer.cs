@@ -41,7 +41,13 @@
             this.print2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.imageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.showGridToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.interpolationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.middlePixelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dominantPixelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.weightedAverageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.tbGridSize)).BeginInit();
             this.pnlImage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picImage)).BeginInit();
@@ -158,7 +164,8 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem});
+            this.fileToolStripMenuItem,
+            this.imageToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(673, 24);
@@ -169,7 +176,6 @@
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.openImageToolStripMenuItem,
-            this.showGridToolStripMenuItem,
             this.printToolStripMenuItem,
             this.print2ToolStripMenuItem,
             this.toolStripMenuItem1,
@@ -218,6 +224,21 @@
             this.exitToolStripMenuItem.Text = "&Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
+            // imageToolStripMenuItem
+            // 
+            this.imageToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.showGridToolStripMenuItem,
+            this.toolStripMenuItem2,
+            this.interpolationToolStripMenuItem});
+            this.imageToolStripMenuItem.Name = "imageToolStripMenuItem";
+            this.imageToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.imageToolStripMenuItem.Text = "&Image";
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(167, 6);
+            // 
             // showGridToolStripMenuItem
             // 
             this.showGridToolStripMenuItem.Checked = true;
@@ -225,9 +246,45 @@
             this.showGridToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.showGridToolStripMenuItem.Name = "showGridToolStripMenuItem";
             this.showGridToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.G)));
-            this.showGridToolStripMenuItem.Size = new System.Drawing.Size(249, 22);
+            this.showGridToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.showGridToolStripMenuItem.Text = "&Show Grid";
             this.showGridToolStripMenuItem.Click += new System.EventHandler(this.showGridToolStripMenuItem_Click);
+            // 
+            // interpolationToolStripMenuItem
+            // 
+            this.interpolationToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.middlePixelToolStripMenuItem,
+            this.dominantPixelToolStripMenuItem,
+            this.weightedAverageToolStripMenuItem});
+            this.interpolationToolStripMenuItem.Name = "interpolationToolStripMenuItem";
+            this.interpolationToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.interpolationToolStripMenuItem.Text = "Inter&polation";
+            // 
+            // middlePixelToolStripMenuItem
+            // 
+            this.middlePixelToolStripMenuItem.Checked = true;
+            this.middlePixelToolStripMenuItem.CheckOnClick = true;
+            this.middlePixelToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.middlePixelToolStripMenuItem.Name = "middlePixelToolStripMenuItem";
+            this.middlePixelToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.middlePixelToolStripMenuItem.Text = "&Middle pixel";
+            this.middlePixelToolStripMenuItem.Click += new System.EventHandler(this.InterpolationModeChanged);
+            // 
+            // dominantPixelToolStripMenuItem
+            // 
+            this.dominantPixelToolStripMenuItem.CheckOnClick = true;
+            this.dominantPixelToolStripMenuItem.Name = "dominantPixelToolStripMenuItem";
+            this.dominantPixelToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.dominantPixelToolStripMenuItem.Text = "&Dominant pixel";
+            this.dominantPixelToolStripMenuItem.Click += new System.EventHandler(this.InterpolationModeChanged);
+            // 
+            // weightedAverageToolStripMenuItem
+            // 
+            this.weightedAverageToolStripMenuItem.CheckOnClick = true;
+            this.weightedAverageToolStripMenuItem.Name = "weightedAverageToolStripMenuItem";
+            this.weightedAverageToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.weightedAverageToolStripMenuItem.Text = "&Weighted average";
+            this.weightedAverageToolStripMenuItem.Click += new System.EventHandler(this.InterpolationModeChanged);
             // 
             // FrmMain
             // 
@@ -279,7 +336,13 @@
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem printToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem imageToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem showGridToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem interpolationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem middlePixelToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem dominantPixelToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem weightedAverageToolStripMenuItem;
     }
 }
 

@@ -3,20 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pixelator", "Pixelator\Pixelator.csproj", "{BD4F004C-6821-4A62-B2AA-E6B7C50060E4}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "PixelatorInstaller", "PixelatorInstaller\PixelatorInstaller.vdproj", "{B29F0FAE-6D5E-422B-AD3C-1B83584B7913}"
-EndProject
 Global
 	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 3
+		SccNumberOfProjects = 2
 		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
 		SccTeamFoundationServer = https://tfs.codeplex.com/tfs/tfs34
 		SccLocalPath0 = .
 		SccProjectUniqueName1 = Pixelator\\Pixelator.csproj
 		SccProjectName1 = Pixelator
 		SccLocalPath1 = Pixelator
-		SccProjectUniqueName2 = PixelatorInstaller\\PixelatorInstaller.vdproj
-		SccProjectName2 = PixelatorInstaller
-		SccLocalPath2 = PixelatorInstaller
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -30,10 +25,6 @@ Global
 		{BD4F004C-6821-4A62-B2AA-E6B7C50060E4}.Deploy|x86.Build.0 = Release|x86
 		{BD4F004C-6821-4A62-B2AA-E6B7C50060E4}.Release|x86.ActiveCfg = Release|x86
 		{BD4F004C-6821-4A62-B2AA-E6B7C50060E4}.Release|x86.Build.0 = Release|x86
-		{B29F0FAE-6D5E-422B-AD3C-1B83584B7913}.Debug|x86.ActiveCfg = Debug
-		{B29F0FAE-6D5E-422B-AD3C-1B83584B7913}.Deploy|x86.ActiveCfg = Release
-		{B29F0FAE-6D5E-422B-AD3C-1B83584B7913}.Deploy|x86.Build.0 = Release
-		{B29F0FAE-6D5E-422B-AD3C-1B83584B7913}.Release|x86.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

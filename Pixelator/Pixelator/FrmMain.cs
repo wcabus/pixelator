@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using Pixelator.Interpolation;
 
 namespace Pixelator {
     public partial class FrmMain : Form {
         private Dictionary<Color, List<Rectangle>> drawList;
         private Image originalImage;
+        private IInterpolator interpolator = new MiddlePixelInterpolator();
 
         public FrmMain() {
             InitializeComponent();
@@ -86,15 +88,14 @@ namespace Pixelator {
                     int width = gridSize, height = gridSize;
 
                     //Fix width or height if the image is not divided in squares (near the edges)
-                    if (x + (gridSize / 2) >= rasterized.Width)
-                        width = (rasterized.Width) - x;
+                    if (x + gridSize >= rasterized.Width)
+                        width = (rasterized.Width) - x - 1;
 
-                    if (y + (gridSize / 2) >= rasterized.Height)
-                        height = (rasterized.Height) - y;
+                    if (y + gridSize >= rasterized.Height)
+                        height = (rasterized.Height) - y - 1;
 
-                    //TODO Instead of selecting the "middle pixel", introduce interpolation algorithms
-                    Color pixel = source.GetPixel(x + width / 2, y + height / 2);
                     Rectangle block = new Rectangle(x, y, width, height);
+                    Color pixel = interpolator.DetermineColor(source, block);
 
                     if (!drawList.ContainsKey(pixel))
                         drawList.Add(pixel, new List<Rectangle>());
@@ -200,6 +201,32 @@ namespace Pixelator {
         }
 
         private void showGridToolStripMenuItem_Click(object sender, EventArgs e) {
+            Pixelate(showGridToolStripMenuItem.Checked);
+        }
+
+        private void InterpolationModeChanged(object sender, EventArgs e) {
+            if (sender == middlePixelToolStripMenuItem) {
+                dominantPixelToolStripMenuItem.Checked = false;
+                weightedAverageToolStripMenuItem.Checked = false;
+
+                interpolator = new MiddlePixelInterpolator();
+                Pixelate(showGridToolStripMenuItem.Checked);
+                return;
+            }
+
+            if (sender == dominantPixelToolStripMenuItem) {
+                middlePixelToolStripMenuItem.Checked = false;
+                weightedAverageToolStripMenuItem.Checked = false;
+
+                interpolator = new DominantPixelInterpolator();
+                Pixelate(showGridToolStripMenuItem.Checked);
+                return;
+            }
+
+            middlePixelToolStripMenuItem.Checked = false;
+            dominantPixelToolStripMenuItem.Checked = false;
+
+            interpolator = new WeightedAverageInterpolator();
             Pixelate(showGridToolStripMenuItem.Checked);
         }
     }

@@ -31,7 +31,7 @@
     <InstallUrl>http://pixelator.codeplex.com/releases/clickonce/</InstallUrl>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationRevision>2</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -105,6 +105,10 @@
     <Compile Include="FrmPrintPreview.Designer.cs">
       <DependentUpon>FrmPrintPreview.cs</DependentUpon>
     </Compile>
+    <Compile Include="Interpolation\WeightedAverageInterpolator.cs" />
+    <Compile Include="Interpolation\DominantPixelInterpolator.cs" />
+    <Compile Include="Interpolation\IInterpolator.cs" />
+    <Compile Include="Interpolation\MiddlePixelInterpolator.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="ColorCountControl.resx">
